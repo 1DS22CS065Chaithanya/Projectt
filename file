@@ -1,0 +1,24 @@
+#include<stdio.h>
+#include<string.h>
+int main(void){
+char buff[64];
+int pass=0;
+printf("Enter the passowrd:");
+if(fgets(buff,sizeof(buff),stdin)==NULL){
+fprintf(stderr,"Input err.\n");
+return 1;
+}
+buff[strcspn(buff,"\n")]='\0';
+if(strcmp(buff,"admin@123")==0){
+pass=1;
+}else{
+pass=0;
+}
+if(pass){
+printf("\n Correct vpassword\n");
+printf("Root privileges provided to the user");
+}else{
+printf("\n wrong vpassword\n");
+}
+return 0;
+}
